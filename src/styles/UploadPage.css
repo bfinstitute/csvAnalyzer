@@ -1,0 +1,162 @@
+.upload-page {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.upload-dropzone {
+    flex: 1;
+    background-color: #f7fafc;
+    border-right: 2px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto;
+    box-sizing: border-box; /* Prevent padding from adding extra width */
+}
+
+.dropzone-content {
+    font-size: 2rem;
+    color: #4a5568;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropzone-content p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.upload-input {
+    display: none;
+}
+
+.file-label {
+    margin-top: 1rem;
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.upload-info {
+    flex: 1;
+    background-color: #5a67d8;
+    color: white;
+    padding: 3rem;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto;
+    box-sizing: border-box; /* Prevent padding from adding extra width */
+}
+
+.upload-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.upload-info p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.preview-table {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.preview-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.preview-table th,
+.preview-table td {
+    border: 1px solid #e2e8f0;
+    padding: 0.5rem;
+    color: #2d3748;
+}
+
+.go-dashboard {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: white;
+    color: #5a67d8;
+    border: none;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.go-dashboard:hover {
+    background-color: #edf2f7;
+}
+
+/* Tablet and down */
+@media screen and (max-width: 768px) {
+    .upload-page {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .upload-dropzone,
+    .upload-info {
+        flex: none;
+        width: 100%;
+        height: auto;
+        padding: 1.5rem;
+        padding-right: 3rem;
+    }
+
+    .dropzone-content {
+        font-size: 1.5rem;
+    }
+
+    .preview-table table {
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile and small screens */
+@media screen and (max-width: 480px) {
+    .dropzone-content {
+        font-size: 1.2rem;
+    }
+
+    .dropzone-content p {
+        font-size: 1rem;
+    }
+
+    .upload-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .upload-info p {
+        font-size: 1rem;
+    }
+
+    .preview-table table {
+        font-size: 0.75rem;
+    }
+
+    .go-dashboard {
+        width: 100%;
+        padding: 1rem;
+    }
+}
