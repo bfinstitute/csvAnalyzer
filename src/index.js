@@ -5,7 +5,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { AuthProvider } from './components/AuthContext'; // Adjust if your path differs
+import { AuthProvider } from './context/AuthContext'; // Adjust if your path differs
+import { CsvProvider } from './context/CsvContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <App />
+        <CsvProvider>
+          <App />
+        </CsvProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>

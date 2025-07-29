@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -6,7 +6,7 @@ import UploadPage from './components/UploadPage';
 import Dashboard from './components/Dashboard';
 import SignIn from './components/SignIn';
 import ProtectedRoute from './components/ProtectedRoute';
-import logo from './logo.svg';
+import CSVEditor from './components/CSVEditor';
 import './App.css';
 
 function App() {
@@ -25,15 +25,23 @@ function App() {
           }
         />
         <Route
+          path="/edit"
+          element={
+            <ProtectedRoute>
+              <CSVEditor />
+            </ProtectedRoute>
+          }
+        />
+        {/* <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
               <Dashboard />
             </ProtectedRoute>
           }
-        />
+        /> */}
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

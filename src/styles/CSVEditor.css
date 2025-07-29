@@ -1,0 +1,58 @@
+/* src/styles/CSVEditor.css */
+
+.csv-editor-container {
+    padding: 2rem;
+    max-width: 100%;
+    overflow-x: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .csv-editor-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .csv-editor-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+  
+  .csv-editor-container th,
+  .csv-editor-container td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+  }
+  
+  .csv-editor-container th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+  }
+  
+  .csv-editor-container input[type='text'] {
+    width: 100%;
+    padding: 0.3rem;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .csv-editor-container button {
+    margin-right: 0.8rem;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .csv-editor-container button:hover {
+    background-color: #0056b3;
+  }
+  
