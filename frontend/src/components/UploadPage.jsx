@@ -10,6 +10,7 @@ export default function UploadPage() {
   const [uploadStatus, setUploadStatus] = useState(null);
   const [summary, setSummary] = useState(null);
   const [annotations, setAnnotations] = useState(null);
+  const [selectedColumn, setSelectedColumn] = useState(null);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
@@ -83,26 +84,8 @@ export default function UploadPage() {
         {fileName && <p className="file-label">Uploaded: {fileName}</p>}
         {uploadStatus && <p className="file-label">{uploadStatus}</p>}
         {/* After upload status, show summary and annotations if available */}
-        {summary && (
-          <div className="file-summary">
-            <h3>File Summary</h3>
-            <p><b>Rows:</b> {summary.num_rows}</p>
-            <p><b>Columns:</b> {summary.num_columns}</p>
-            <p><b>Column Names:</b> {summary.columns.join(', ')}</p>
-            <h4>Sample Data:</h4>
-            <pre style={{background:'#f4f4f4', padding:'8px', borderRadius:'6px'}}>{JSON.stringify(summary.sample, null, 2)}</pre>
-          </div>
-        )}
-        {annotations && (
-          <div className="file-annotations">
-            <h3>Column Annotations</h3>
-            <ul>
-              {Object.entries(annotations).map(([col, desc]) => (
-                <li key={col}><b>{col}:</b> {desc}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+        
+
       </div>
 
       {/* Right Column: Info + Preview + Button */}
@@ -118,12 +101,41 @@ export default function UploadPage() {
               <CSVPreview data={previewData} />
             </div> */}
             <h3>CSV Preview</h3>
+            
+            {/* Column Description Display */}
+            {selectedColumn && annotations && annotations[selectedColumn] && (
+              <div className="column-description" style={{
+                background: '#f0f8ff',
+                padding: '10px',
+                margin: '10px 0',
+                borderRadius: '5px',
+                border: '1px solid #ddd',
+                color: '#333',
+                fontSize: '14px',
+                lineHeight: '1.4'
+              }}>
+                <strong style={{color: '#000'}}>{selectedColumn}:</strong> {annotations[selectedColumn]}
+              </div>
+            )}
+            
             <div className="preview-table">
               <table>
                 <thead>
                   <tr>
                     {Object.keys(previewData[0]).map((key) => (
-                      <th key={key}>{key}</th>
+                      <th 
+                        key={key} 
+                        onClick={() => setSelectedColumn(key)}
+                        style={{
+                          cursor: 'pointer',
+                          background: selectedColumn === key ? '#e6f3ff' : '#f5f5f5',
+                          padding: '8px',
+                          border: '1px solid #ddd'
+                        }}
+                        title="Click to see column description"
+                      >
+                        {key}
+                      </th>
                     ))}
                   </tr>
                 </thead>
