@@ -1,0 +1,72 @@
+/* -- Main Page -- */
+.test-mainpage {
+    display: flex;
+    min-height: 100vh; /* Ensures it takes at least the full viewport height */
+    width: 100vw;    /* Ensures it takes the full viewport width */
+}
+
+/* -- Left Side -- */
+.test-leftside {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-image: linear-gradient(30deg, #2644FF 0%, var(--Primary-800) 50%, var(--Primary-600) 50%, var(--Primary-600) 100%);
+}
+
+/* Header */
+.test-header {
+    display: flex;
+    padding: 32px 48px 48px 48px;
+}
+
+/* Left Side Image */
+.test-image {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.test-image img{
+    display: flex;
+    width: 100%;
+    height: auto;
+    max-width: 493px;
+    max-height: 531px;
+}
+
+/* Footer */
+.test-footer {
+    display: flex;
+    align-items: center;
+    justify-self: flex-end;
+    gap: 10px;
+    padding: 0px 32px 12px 32px;    
+}
+
+/* -- Right Side -- */
+.test-rightside {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Login Container */
+.test-login {
+    display: flex;
+    flex-direction: column;
+    margin: 48px;
+}
+
+.test-login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.test-login-form {
+    display: flex;
+    flex-direction: column;
+}

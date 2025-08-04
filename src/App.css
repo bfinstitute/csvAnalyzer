@@ -1,0 +1,47 @@
+:root {
+    /* Primary */
+    --Primary-50: #FFF;
+    --Primary-100: #E9EFFF;
+    --Primary-200: #D6DDFF;
+    --Primary-300: #8C94CE;
+    --Primary-400: #748DFF;
+    --Primary-500: #2644FF;
+    --Primary-600: #000B84;
+    --Primary-700: #000A75;
+    --Primary-800: #000865;
+    --Primary-900: #050A49;
+    --Primary-950: #090C2D;
+    --Primary-1000: #0E0E11;
+    
+    /* Color */
+    --Grey-50: #FFF;
+    --Grey-100: #F4F4F5;
+    --Grey-200: #E4E4E7;
+    --Grey-300: #CCCCCF;
+    --Grey-400: #B4B4B7;
+    --Grey-500: #9D9DA0;
+    --Grey-600: #858588;
+    --Grey-700: #6D6D70;
+    --Grey-800: #555558;
+    --Grey-900: #3E3E41;
+    --Grey-950: #262629;
+    --Grey-1000: #0E0E11;
+
+    /* Spacing */
+    --spacing-100: 2px;
+    --spacing-200: 4px;
+    --spacing-300: 8px;
+    --spacing-400: 16px;
+    --spacing-450: 24px;
+    --spacing-500: 32px;
+    --spacing-550: 48px;
+    --spacing-600: 64px;
+}
+
+@font-face {
+    font-family: "Saans TRIAL";
+    src: local("SaansTRIAL-Regular"),
+        url("../src/assets/fonts/SaansTRIAL-Regular/SaansTRIAL-Regular.ttf"), format("ttf"),
+        url("../src/assets/fonts/SaansTRIAL-Regular/SaansTRIAL-Regular.woff"), format("woff"),
+        url("../src/assets/fonts/SaansTRIAL-Regular/SaansTRIAL-Regular.woff2"), format("woff2");
+}

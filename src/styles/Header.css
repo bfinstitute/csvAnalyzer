@@ -1,30 +1,43 @@
 .site-header {
     background-color: white;
-    color: black;
-    padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(183, 42, 42, 0.1);
+    border-bottom: 1px solid var(--Grey-200);
+    background: var(--Grey-50);
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
     display: flex;
     justify-content: space-between;
+    padding: 16px 48px;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .branding {
     display: flex;
     align-items: center;
     gap: 1rem;
+    width: 188.858px;
+    height: 46px;
 }
 
-.logo {
-    width: auto;
-    height: 100px;
+.header-base-btn {
+    display: flex;
+    border-radius: var(--spacing-600);
+    background-color: var(--Grey-100);
+    border: none;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;    
+    cursor: pointer;
 }
+
+/* .header-menu-btn {
+    border-radius: var(--spacing-500);
+    width: 51px;
+    height: 51px;
+    padding: 12px;
+} */
+
 
 .nav-links {
     display: flex;
@@ -48,10 +61,5 @@
         justify-content: center;
         margin-top: 1rem;
         flex-wrap: wrap;
-    }
-
-    .container {
-        flex-direction: column;
-        align-items: center;
     }
 }

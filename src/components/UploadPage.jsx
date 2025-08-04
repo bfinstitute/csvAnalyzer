@@ -1,9 +1,12 @@
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Papa from 'papaparse';
-import CSVPreview from './CSVPreview';
 import '../styles/UploadPage.css';
 import { useCsv } from '../context/CsvContext';
+import Header from './Header';
+import uploadLogo from '../assets/images/iconoir_cloud-upload.svg'
+import ProgressDots from './ProgressDots';
+import UploadInfo from './UploadInfo';
 
 export default function UploadPage() {
   const fileInputRef = useRef(null);
@@ -19,6 +22,7 @@ export default function UploadPage() {
         dynamicTyping: true,
         complete: (results) => {
           setCsvData(results.data);
+          navigate('/edit');
         },
       });
     } else {
@@ -38,41 +42,31 @@ export default function UploadPage() {
   };
 
   return (
-    <div className="upload-page">
-      <div
-        className="upload-dropzone"
-        onDrop={handleDrop}
-        onDragOver={(e) => e.preventDefault()}
-        onClick={() => fileInputRef.current.click()}
-      >
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept=".csv"
-          onChange={handleFileSelect}
-          className="upload-input"
-        />
-        <div className="dropzone-content">
-          📁
-          <p>Click or drag and drop your CSV file here</p>
-        </div>
-        {fileName && <p className="file-label">Uploaded: {fileName}</p>}
-      </div>
-
-      <div className="upload-info">
-        <h2>What happens next?</h2>
-        <p>
-          After uploading your CSV, we process it to generate a brief preview, summarize key metrics,
-          and let you continue to a dashboard with visual insights.
-        </p>
-        {csvData.length > 0 && (
-          <>
-            <CSVPreview data={csvData.slice(0, 10)} />
-            <button className="go-dashboard" onClick={() => navigate('/edit')}>
-              Go Edit CSV
+    <div>
+      <Header></Header>
+      <div className="upload-page">
+          <UploadInfo />
+          <ProgressDots />
+        <div
+          className="upload-dropzone upload-area"
+          onDrop={handleDrop}
+          onDragOver={(e) => e.preventDefault()}
+        >
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".csv"
+            onChange={handleFileSelect}
+            className="upload-input"
+          />
+          <div className="dropzone-content">
+            <img src={uploadLogo} alt="Upload Logo"/>
+            <p className="dropzone-text">Drag and drop a CSV or browse to attach</p>
+            <button className="attach-button" onClick={() => fileInputRef.current.click()}>
+              Upload Your CSV
             </button>
-          </>
-        )}
+          </div>
+        </div>
       </div>
     </div>
   );
