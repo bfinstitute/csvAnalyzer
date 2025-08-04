@@ -55,9 +55,8 @@ td {
 }
 
 .question-icon {
-  cursor: pointer;
+  cursor: help;
   font-size: 0.85em;
-  color: #555;
 }
 
 .spark-icon {
@@ -76,6 +75,7 @@ td {
 .buttons {
   display: flex;
   align-self: center;
+  justify-self: center;
   gap: 10px;
   /* flex-shrink: 0; */
 }

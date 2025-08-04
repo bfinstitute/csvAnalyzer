@@ -1,14 +1,8 @@
-import { useCsv } from '../context/CsvContext';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../styles/CSVEditor.css';
 import ProgressDots from './ProgressDots';
 import UploadInfo from './UploadInfo';
 import Header from './Header';
-import downloadLogo from "../assets/images/iconoir_download.svg"
-import infoIcon from "../assets/images/Icon=info-circle.svg";
-import transferIcon from "../assets/images/Icon=data-transfer-both.svg";
-import sparkIcon from "../assets/images/Icon=spark.svg"
+import ToggleSwitch from './ToggleSwitch';
 
 const headerDescriptions = {
   street: 'The street name or location info.',
@@ -18,81 +12,13 @@ const headerDescriptions = {
 };
 
 export default function CSVEditor() {
-  const navigate = useNavigate();
-  const { csvData } = useCsv();
-  const [visibleHeader, setVisibleHeader] = useState(null);
-
-  if (!csvData || csvData.length === 0) {
-    return <div className="preview-table">No data to display.</div>;
-  }
-
-  const headers = Object.keys(csvData[0]);
-
-  const handleDownload = () => {
-    const csv = [
-      headers.join(','),
-      ...csvData.map((row) =>
-        headers.map((key) => JSON.stringify(row[key] || '')).join(',')
-      ),
-    ].join('\n');
-
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'preview.csv';
-    a.click();
-  };
-
   return (
     <div>
       <Header />
       <div className='preview-page'>
         <UploadInfo />
         <ProgressDots />
-        <div className="preview-table">
-          <table>
-            <thead>
-              <tr>
-                {headers.map((header) => (
-                  <th key={header} className="header-cell">
-                    <div className="header-top">
-                      <span className="header-label">{header}</span>
-                      <span
-                        className="question-icon"
-                        onClick={() =>
-                          setVisibleHeader(visibleHeader === header ? null : header)
-                        }
-                        title="Show description"
-                      >
-                        {/* <img src={ transferIcon } alt="||" /> */}
-                        <img src={ infoIcon } alt="❓" />
-                      </span>
-                    </div>
-                    {visibleHeader === header && (
-                      <div className="header-description">
-                        {headerDescriptions[header] || <p><img src={ sparkIcon } alt="*" className="spark-icon" /> No description available.</p>}
-                      </div>
-                    )}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {csvData.map((row, rowIndex) => (
-                <tr key={rowIndex}>
-                  {headers.map((header) => (
-                    <td key={header}>{row[header]}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="buttons">
-          <button onClick={handleDownload} className='button-base download-btn'><img src={downloadLogo} alt="Download Logo"/></button>
-          <button className='button-base back-btn' onClick={() => navigate('/upload')}>Back</button>
-          <button className='button-base next-btn' onClick={() => navigate('/success')}>Finalize</button>
-        </div>
+        <ToggleSwitch />
       </div>
     </div>
   );
